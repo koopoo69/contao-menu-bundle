@@ -1,0 +1,56 @@
+{
+    "name": "heimrichhannot/contao-menu-bundle",
+    "description": "This bundle offers support for menu in the Contao CMS backend.",
+    "keywords": [
+        "contao",
+        "menu"
+    ],
+    "type": "contao-module",
+    "homepage": "https://bitbucket.org/heimrichhannot/contao-menu-bundle",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Heimrich & Hannot",
+            "email": "digitales@heimrich-hannot.de",
+            "homepage": "http://www.heimrich-hannot.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "issues": "https://bitbucket.org/heimrichhannot/contao-menu-bundle/issues"
+    },
+    "require": {
+        "php": "^7.3",
+        "contao/core-bundle": "^4.4",
+        "heimrichhannot/contao-utils-bundle": "^2.116"
+    },
+    "require-dev": {
+        "contao/test-case": "1.1.*",
+        "contao/manager-plugin": "^2.0",
+        "friendsofphp/php-cs-fixer": "^2.2",
+        "phpunit/phpunit": "^6.0",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/message-factory": "^1.0.2",
+        "php-coveralls/php-coveralls": "^2.0",
+        "symfony/phpunit-bridge": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "HeimrichHannot\\MenuBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "HeimrichHannot\\MenuBundle\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "contao-manager-plugin": "HeimrichHannot\\MenuBundle\\ContaoManager\\Plugin"
+    },
+    "replace": {
+        "heimrichhannot/contao-menu-bundle": "self.version"
+    }
+}
