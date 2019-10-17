@@ -1,6 +1,6 @@
 # Contao Menu Bundle
 
-This bundle adds a hover-based menu module for the Contao CMS.
+This bundle adds a multi-level menu module for the Contao CMS.
 
 ## Features
 
