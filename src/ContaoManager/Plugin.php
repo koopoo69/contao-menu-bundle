@@ -28,14 +28,6 @@ class Plugin implements BundlePluginInterface, ConfigPluginInterface
             ContaoCoreBundle::class
         ];
 
-        if (class_exists('HeimrichHannot\EventsBundle\HeimrichHannotContaoEventsBundle')) {
-            $loadAfter[] = \HeimrichHannot\EventsBundle\HeimrichHannotContaoEventsBundle::class;
-        }
-
-        if (class_exists('HeimrichHannot\EventRegistrationBundle\ContaoEventRegistrationBundle')) {
-            $loadAfter[] = \HeimrichHannot\EventRegistrationBundle\ContaoEventRegistrationBundle::class;
-        }
-
         return [BundleConfig::create(ContaoMenuBundle::class)->setLoadAfter($loadAfter)];
     }
 
