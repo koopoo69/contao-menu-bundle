@@ -8,93 +8,42 @@
  * @license LGPL-3.0-or-later
  */
 
-namespace Contao;
+namespace HeimrichHannot\MenuBundle\FrontendModule;
 
+use Contao\BackendTemplate;
+use Contao\ModuleCustomnav;
 use Patchwork\Utf8;
 
-/**
- * Front end module "navigation".
- *
- * @author Leo Feyer <https://github.com/leofeyer>
- */
-class ModuleNavigation extends \Module
+class CustomMenuModule extends ModuleCustomnav
 {
-	/**
-	 * Template
-	 * @var string
-	 */
-	protected $strTemplate = 'mod_navigation';
+    protected $strTemplate = 'mod_huh_custom_menu';
 
-	/**
-	 * Do not display the module if there are no menu items
-	 *
-	 * @return string
-	 */
-	public function generate()
-	{
-		if (TL_MODE == 'BE')
-		{
-			/** @var BackendTemplate|object $objTemplate */
-			$objTemplate = new \BackendTemplate('be_wildcard');
+    const TYPE = 'huh_menu';
 
-			$objTemplate->wildcard = '### ' . Utf8::strtoupper($GLOBALS['TL_LANG']['FMD']['navigation'][0]) . ' ###';
-			$objTemplate->title = $this->headline;
-			$objTemplate->id = $this->id;
-			$objTemplate->link = $this->name;
-			$objTemplate->href = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
+    public function generate()
+    {
+        if (TL_MODE == 'BE') {
+            /** @var BackendTemplate|object $objTemplate */
+            $objTemplate = new \BackendTemplate('be_wildcard');
 
-			return $objTemplate->parse();
-		}
+            $objTemplate->wildcard = '### ' . Utf8::strtoupper($GLOBALS['TL_LANG']['FMD'][$this->type][0]) . ' ###';
+            $objTemplate->title    = $this->headline;
+            $objTemplate->id       = $this->id;
+            $objTemplate->link     = $this->name;
+            $objTemplate->href     = 'contao/main.php?do=themes&amp;table=tl_module&amp;act=edit&amp;id=' . $this->id;
 
-		$strBuffer = parent::generate();
+            return $objTemplate->parse();
+        }
 
-		return ($this->Template->items != '') ? $strBuffer : '';
-	}
+        $strBuffer = parent::generate();
 
-	/**
-	 * Generate the module
-	 */
-	protected function compile()
-	{
-		/** @var PageModel $objPage */
-		global $objPage;
+        return ($this->Template->items != '') ? $strBuffer : '';
+    }
 
-		// Set the trail and level
-		if ($this->defineRoot && $this->rootPage > 0)
-		{
-			$trail = array($this->rootPage);
-			$level = 0;
-		}
-		else
-		{
-			$trail = $objPage->trail;
-			$level = ($this->levelOffset > 0) ? $this->levelOffset : 0;
-		}
+    protected function compile()
+    {
+        parent::compile();
 
-		$lang = null;
-		$host = null;
 
-		// Overwrite the domain and language if the reference page belongs to a differnt root page (see #3765)
-		if ($this->defineRoot && $this->rootPage > 0)
-		{
-			$objRootPage = \PageModel::findWithDetails($this->rootPage);
-
-			// Set the language
-			if (\Config::get('addLanguageToUrl') && $objRootPage->rootLanguage != $objPage->rootLanguage)
-			{
-				$lang = $objRootPage->rootLanguage;
-			}
-
-			// Set the domain
-			if ($objRootPage->rootId != $objPage->rootId && $objRootPage->domain != '' && $objRootPage->domain != $objPage->domain)
-			{
-				$host = $objRootPage->domain;
-			}
-		}
-
-		$this->Template->request = ampersand(\Environment::get('indexFreeRequest'));
-		$this->Template->skipId = 'skipNavigation' . $this->id;
-		$this->Template->skipNavigation = \StringUtil::specialchars($GLOBALS['TL_LANG']['MSC']['skipNavigation']);
-		$this->Template->items = $this->renderNavigation($trail[$level], 1, $host, $lang);
-	}
+    }
 }
