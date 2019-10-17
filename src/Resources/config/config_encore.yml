@@ -1,0 +1,7 @@
+huh:
+  encore:
+    entries:
+      - { name: contao-menu-bundle, file: "vendor/heimrichhannot/contao-menu-bundle/src/Resources/assets/js/contao-menu-bundle.js"}
+    legacy:
+      js:
+        - contao-menu-bundle
