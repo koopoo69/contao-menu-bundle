@@ -18,7 +18,7 @@ class CustomMenuModule extends ModuleCustomnav
 {
     protected $strTemplate = 'mod_huh_custom_menu';
 
-    const TYPE = 'huh_menu';
+    const TYPE = 'huh_custom_menu';
 
     public function generate()
     {

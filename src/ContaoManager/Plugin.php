@@ -8,7 +8,7 @@ use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
 use Contao\ManagerPlugin\Config\ContainerBuilder;
 use Contao\ManagerPlugin\Config\ExtensionPluginInterface;
-use HeimrichHannot\ListBundle\HeimrichHannotContaoListBundle;
+use HeimrichHannot\MenuBundle\ContaoMenuBundle;
 use HeimrichHannot\UtilsBundle\Container\ContainerUtil;
 use Contao\ManagerPlugin\Config\ConfigPluginInterface;
 use Symfony\Component\Config\Loader\LoaderInterface;
@@ -21,7 +21,7 @@ class Plugin implements BundlePluginInterface, ExtensionPluginInterface, ConfigP
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create(HeimrichHannotContaoListBundle::class)->setLoadAfter([ContaoCoreBundle::class]),
+            BundleConfig::create(ContaoMenuBundle::class)->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
 

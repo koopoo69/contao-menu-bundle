@@ -1,0 +1,15 @@
+.mod_huh_menu {
+  ul.level_1 {
+    ul {
+      &:not(.open) {
+        display: none;
+      }
+    }
+
+    li {
+      a {
+
+      }
+    }
+  }
+}
