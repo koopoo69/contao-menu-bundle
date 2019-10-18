@@ -7,6 +7,9 @@ class MenuBundle {
     static initMenu() {
         let hasTouchEvents = document.querySelector('html').classList.contains('touchevents');
 
+        // console.log(window.navigator.maxTouchPoints);
+        // console.log(window.navigator);
+
         document.querySelectorAll('.mod_huh_menu').forEach((menu) => {
             let maxTriggerLevel = menu.getAttribute('data-max-trigger-level'),
                 switchDelay = menu.getAttribute('data-switch-delay'),
@@ -37,7 +40,7 @@ class MenuBundle {
                 link.addEventListener('mouseleave', (e) => {
                     let toElement = e.toElement;
 
-                    if (typeof toElement !== 'undefined' && toElement.classList.contains('submenu') && toElement.tagName === 'a' && toElement.parentElement.previousElementSibling === link) {
+                    if (typeof toElement !== 'undefined' && toElement.tagName === 'LI' && toElement.parentElement.previousElementSibling === link) {
                         return;
                     }
 
