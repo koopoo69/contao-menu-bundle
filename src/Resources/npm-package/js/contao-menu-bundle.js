@@ -40,7 +40,7 @@ class MenuBundle {
                 link.addEventListener('mouseleave', (e) => {
                     let toElement = e.toElement;
 
-                    if (typeof toElement !== 'undefined' && toElement.tagName === 'LI' && toElement.parentElement.previousElementSibling === link) {
+                    if (typeof toElement !== 'undefined' && toElement !== null && toElement.tagName === 'LI' && toElement.parentElement.previousElementSibling === link) {
                         return;
                     }
 
@@ -55,12 +55,14 @@ class MenuBundle {
                 });
 
                 link.nextElementSibling.addEventListener('mouseleave', (e) => {
-                    if (typeof e.toElement !== 'undefined' && e.toElement == link) {
+                    let toElement = e.toElement;
+
+                    if (typeof toElement !== 'undefined' && toElement !== null && toElement == link.nextElementSibling) {
                         return;
                     }
 
                     setTimeout(() => {
-                        if (MenuBundle.isElementCurrentlyHovered(link)) {
+                        if (MenuBundle.isElementCurrentlyHovered(link.nextElementSibling)) {
                             return;
                         }
 
