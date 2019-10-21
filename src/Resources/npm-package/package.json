@@ -1,12 +1,10 @@
 {
   "name": "@hundh/contao-menu-bundle",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "This package contains the frontend assets of the composer bundle heimrichhannot/contao-menu-bundle.",
   "main": "js/contao-menu-bundle.js",
   "dependencies": {
-    "imagesloaded": "^4.1",
-    "jscroll": "^2.3",
-    "masonry-layout": "^4.1"
+    "@hund/contao-utils-bundle": "^1.0"
   },
   "repository": {
     "type": "git",

@@ -1,3 +1,5 @@
+import '@hundh/contao-utils-bundle';
+
 class MenuBundle {
 
     static init() {
@@ -23,7 +25,11 @@ class MenuBundle {
                     e.preventDefault();
 
                     if (window.navigator.maxTouchPoints == 0) {
+                        let url = link.getAttribute('href');
 
+                        if (url !== null && url.length > 0) {
+                            location.href = link.href;
+                        }
                     }
                 });
 
@@ -114,9 +120,19 @@ class MenuBundle {
                 return;
             }
 
-            // remove all open classes
+            let openedParents = [];
+
+            utilsBundle.dom.getAllParentNodes(link).forEach((element) => {
+                if (element.classList.contains('open')) {
+                    openedParents.push(element);
+                }
+            });
+
+            // remove all open classes except those which are parents
             menu.querySelectorAll('.open').forEach((element) => {
-                element.classList.remove('open');
+                if (openedParents.indexOf(element) < 0) {
+                    element.classList.remove('open');
+                }
             });
 
             if (!link.classList.contains('open')) {
