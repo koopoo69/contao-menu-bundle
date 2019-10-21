@@ -1,6 +1,6 @@
 {
   "name": "@hundh/contao-menu-bundle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This package contains the frontend assets of the composer bundle heimrichhannot/contao-menu-bundle.",
   "main": "js/contao-menu-bundle.js",
   "dependencies": {
