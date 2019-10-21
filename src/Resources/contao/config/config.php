@@ -10,12 +10,12 @@ $GLOBALS['FE_MOD']['navigationMenu'][\HeimrichHannot\MenuBundle\FrontendModule\C
  * JS
  */
 if (System::getContainer()->get('huh.utils.container')->isFrontend()) {
-    $GLOBALS['TL_JAVASCRIPT']['contao-menu-bundle'] = 'bundles/contaomenu/js/contao-menu-bundle.js|static';
+    $GLOBALS['TL_JAVASCRIPT']['contao-menu-bundle'] = 'bundles/contaomenu/contao-menu-bundle.js';
 }
 
 /**
  * CSS
  */
 if (System::getContainer()->get('huh.utils.container')->isFrontend()) {
-    $GLOBALS['TL_CSS']['contao-menu-bundle'] = 'bundles/contaomenu/css/contao-menu-bundle.css|static';
+    $GLOBALS['TL_CSS']['contao-menu-bundle'] = 'bundles/contaomenu/contao-menu-bundle.css';
 }

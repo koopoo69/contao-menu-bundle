@@ -7,3 +7,5 @@ composer.lock
 composer.json~
 composer.phar
 yarn-error.log
+yarn.lock
+/node_modules

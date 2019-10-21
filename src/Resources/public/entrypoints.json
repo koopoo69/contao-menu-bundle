@@ -1,0 +1,12 @@
+{
+  "entrypoints": {
+    "contao-menu-bundle": {
+      "css": [
+        "/public/contao-menu-bundle.css"
+      ],
+      "js": [
+        "/public/contao-menu-bundle.js"
+      ]
+    }
+  }
+}
