@@ -5,14 +5,8 @@ class MenuBundle {
     }
 
     static initMenu() {
-        let hasTouchEvents = document.querySelector('html').classList.contains('touchevents');
-
-        // console.log(window.navigator.maxTouchPoints);
-        // console.log(window.navigator);
-
         document.querySelectorAll('.mod_huh_menu').forEach((menu) => {
             let maxTriggerLevel = menu.getAttribute('data-max-trigger-level'),
-                switchDelay = menu.getAttribute('data-switch-delay'),
                 closeDelay = menu.getAttribute('data-close-delay'),
                 triggerActivatedLinkClasses = [];
 
@@ -27,6 +21,10 @@ class MenuBundle {
             menu.querySelectorAll(triggerActivatedLinkClasses).forEach((link) => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
+
+                    if (window.navigator.maxTouchPoints == 0) {
+
+                    }
                 });
 
                 link.addEventListener('mouseover', () => {
@@ -38,9 +36,9 @@ class MenuBundle {
                 });
 
                 link.addEventListener('mouseleave', (e) => {
-                    let toElement = e.toElement;
+                    console.log('mouseleave link');
 
-                    if (typeof toElement !== 'undefined' && toElement !== null && toElement.tagName === 'LI' && toElement.parentElement.previousElementSibling === link) {
+                    if (MenuBundle.isElementCurrentlyHovered(link.nextElementSibling)) {
                         return;
                     }
 
@@ -55,9 +53,9 @@ class MenuBundle {
                 });
 
                 link.nextElementSibling.addEventListener('mouseleave', (e) => {
-                    let toElement = e.toElement;
+                    console.log('mouseleave submenu ul');
 
-                    if (typeof toElement !== 'undefined' && toElement !== null && toElement == link) {
+                    if (MenuBundle.isElementCurrentlyHovered(link)) {
                         return;
                     }
 

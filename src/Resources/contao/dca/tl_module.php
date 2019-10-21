@@ -26,13 +26,6 @@ $fields = [
         'eval'      => ['maxlength' => 5, 'rgxp' => 'natural', 'tl_class' => 'w50'],
         'sql'       => "smallint(5) unsigned NOT NULL default '300'"
     ],
-    'huhMenu_switchDelay' => [
-        'label'     => &$GLOBALS['TL_LANG']['tl_module']['huhMenu_switchDelay'],
-        'exclude'   => true,
-        'inputType' => 'text',
-        'eval'      => ['maxlength' => 5, 'rgxp' => 'natural', 'tl_class' => 'w50'],
-        'sql'       => "smallint(5) unsigned NOT NULL default '300'"
-    ],
     'huhMenu_closeDelay' => [
         'label'     => &$GLOBALS['TL_LANG']['tl_module']['huhMenu_closeDelay'],
         'exclude'   => true,
