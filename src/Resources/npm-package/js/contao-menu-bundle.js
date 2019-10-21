@@ -57,7 +57,7 @@ class MenuBundle {
                 link.nextElementSibling.addEventListener('mouseleave', (e) => {
                     let toElement = e.toElement;
 
-                    if (typeof toElement !== 'undefined' && toElement !== null && toElement == link.nextElementSibling) {
+                    if (typeof toElement !== 'undefined' && toElement !== null && toElement == link) {
                         return;
                     }
 
