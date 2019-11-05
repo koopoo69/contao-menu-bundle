@@ -42,14 +42,12 @@ class MenuBundle {
                 });
 
                 link.addEventListener('mouseleave', (e) => {
-                    console.log('mouseleave link');
-
-                    if (MenuBundle.isElementCurrentlyHovered(link.nextElementSibling)) {
+                    if (MenuBundle.isElementCurrentlyHovered(link) || MenuBundle.isElementCurrentlyHovered(link.nextElementSibling)) {
                         return;
                     }
 
                     setTimeout(() => {
-                        if (MenuBundle.isElementCurrentlyHovered(link)) {
+                        if (MenuBundle.isElementCurrentlyHovered(link) || MenuBundle.isElementCurrentlyHovered(link.nextElementSibling)) {
                             return;
                         }
 
@@ -59,14 +57,12 @@ class MenuBundle {
                 });
 
                 link.nextElementSibling.addEventListener('mouseleave', (e) => {
-                    console.log('mouseleave submenu ul');
-
-                    if (MenuBundle.isElementCurrentlyHovered(link)) {
+                    if (MenuBundle.isElementCurrentlyHovered(link) || MenuBundle.isElementCurrentlyHovered(link.nextElementSibling)) {
                         return;
                     }
 
                     setTimeout(() => {
-                        if (MenuBundle.isElementCurrentlyHovered(link.nextElementSibling)) {
+                        if (MenuBundle.isElementCurrentlyHovered(link) || MenuBundle.isElementCurrentlyHovered(link.nextElementSibling)) {
                             return;
                         }
 
