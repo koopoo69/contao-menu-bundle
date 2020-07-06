@@ -19,3 +19,4 @@ if (System::getContainer()->get('huh.utils.container')->isFrontend()) {
 if (System::getContainer()->get('huh.utils.container')->isFrontend()) {
     $GLOBALS['TL_CSS']['contao-menu-bundle'] = 'bundles/contaomenu/contao-menu-bundle.css';
 }
+die('Test');
